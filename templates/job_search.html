@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Job Search</title>
+    </head>
+    <form method="POST">
+        <input name="back" value="Back" type="submit">
+        <h2>Job Search</h2>
+        <p>Occupation:</p>
+        <input type = "text" name="occupation">
+        <p>Location:</p>
+        <input type = "text" name="location">
+        <p>Salary Range (Lower - Upper):</p>
+        <input type = "number" name="salaryLower">
+        <label> - </label>
+        <input type = "number" name="salaryUpper">
+        <p></p>
+        <input name="search_jobs" value="Search" type="submit">
+    </form>
+    {% for job in searchResults %}
+    <h2>{{ job.name }}</h2>
+    <body>
+        <div>
+            <p>Salary: ${{ job.salary }}</p>
+            <p>Contact Number: {{ job.contactNum }}</p>
+        </div>
+    </body>
+    <br>
+    {% endfor %}
+</html>

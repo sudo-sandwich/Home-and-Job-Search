@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Home Search</title>
+    </head>
+    <form method="POST">
+        <input name="back" value="Back" type="submit">
+        <h2>Home Search</h2>
+        <p>Location:</p>
+        <input type = "text" name="location">
+        <p>Price Range (Lower - Upper):</p>
+        <input type = "number" name="priceLower">
+        <label> - </label>
+        <input type = "number" name="priceUpper">
+        <p>Home Type:</p>
+        <select name = "searchType">
+            <option value="any">Any</option>
+            <option value="apartment">Apartment</option>
+            <option value="townhouse">Townhouse</option>
+            <option value="house">House</option>
+        </select>
+        <p></p>
+        <input name="search_homes" value="Search" type="submit">
+    </form>
+    {% for home in searchResults %}
+    <h2>{{ home.name }}</h2>
+    <h3>{{ home.type }}</h3>
+    <body>
+        <div>
+            <p>Price: ${{ home.price }}</p>
+            <p>Contact Number: {{ home.contactNum }}</p>
+        </div>
+    </body>
+    <br>
+    {% endfor %}
+</html>
